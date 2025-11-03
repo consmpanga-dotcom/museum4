@@ -1,0 +1,100 @@
+* Reset default browser padding/margin */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body background image */
+body {
+  background-image: url("../images/1000_F_817821954_f2TwejdtqckbX9NFxOYZgUkDB2LeV1nd.jpg"); /* change path or image name as needed */
+  background-size: cover; /* make the image fill the page */
+  background-position: center; /* center the image */
+  background-attachment: fixed; /* make it stay when scrolling */
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* Dark transparent overlay to make text readable */
+.overlay {
+  background-color: rgba(0, 0, 0, 0.6); /* black overlay with transparency */
+  min-height: 100vh;
+  padding: 40px;
+}
+
+/* Header style */
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #ddd;
+}
+
+/* Navigation buttons */
+nav {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+nav button {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid #fff;
+  color: #fff;
+  font-size: 1rem;
+  padding: 10px 25px;
+  margin: 0 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+nav button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Main sections */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.intro, .featured {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.intro h2, .featured h2 {
+  color: #f0d78c;
+  margin-bottom: 10px;
+}
+
+.featured img {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-top: 40px;
+}
+
