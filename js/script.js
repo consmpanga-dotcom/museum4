@@ -1,30 +1,49 @@
-// 🏺 Collection Info Display
-function showCollection(type) {
-  const contentBox = document.getElementById("collection-content");
-  let content = "";
 
-  if (type === "archaeology") {
-    content = `
-      <h3>Archaeology Collection</h3>
-      <p>Explore ancient artifacts, pottery, and relics from past civilizations.
-      Each piece tells a story of human innovation and survival.</p>
-      <img src="../images/file_jpg.png" alt="Archaeological artifacts" style="width:300px; height:auto;">
-    `;
-  } else if (type === "anthropology") {
-    content = `
-      <h3>Anthropology Collection</h3>
-      <p>Dive into the study of cultures, languages, and traditions.
-      Learn how societies evolved through time and space.</p>
-      <img src="../images/file_jpg3.png" alt="Anthropology exhibit" style="width:300px; height:auto;">
-    `;
-  } else if (type === "history") {
-    content = `
-      <h3>History Collection</h3>
-      <p>Discover documents, maps, and objects that trace key historical events
-      shaping our modern world.</p>
-      <img src="../images/file_jpg2.png" alt="Historical artifacts" style="width:300px; height:auto;">
-    `;
+// Open modal dynamically
+function openModal(img) {
+  const modal = document.getElementById('itemModal');
+  const modalImage = document.getElementById('modalImage');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDescription = document.getElementById('modalDescription');
+  const modalPrice = document.getElementById('modalPrice');
+  const modalAddButton = document.getElementById('modalAddButton');
+
+  const parent = img.closest('.souvenir-item');
+  modalImage.src = img.src;
+  modalImage.alt = img.alt;
+  modalTitle.textContent = parent.querySelector('h3').textContent;
+  modalDescription.textContent = parent.querySelector('p').textContent;
+  modalPrice.textContent = parent.querySelectorAll('p')[1].textContent;
+
+  modalAddButton.textContent = `Add ${modalTitle.textContent} to Cart`;
+  modalAddButton.onclick = function() {
+    addToCart(modalTitle.textContent);
+  };
+
+  modal.style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById('itemModal').style.display = "none";
+}
+
+window.onclick = function(event) {
+  const modal = document.getElementById('itemModal');
+  if (event.target == modal) {
+    closeModal();
   }
+}
 
-  contentBox.innerHTML = content;
+// ADD TO CART FUNCTION  
+function addToCart(itemName) {
+  const priceText = document.getElementById("modalPrice").textContent;
+  const price = parseFloat(priceText.replace("Price: $", ""));
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  cart.push({ name: itemName, price: price });
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  alert(itemName + " added to cart!");
 }

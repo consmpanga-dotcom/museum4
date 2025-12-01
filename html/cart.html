@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Cart</title>
+  <link rel="stylesheet" href="css/index.style.css">
+</head>
+<body>
+
+  <h1>Your Cart</h1>
+  <nav>
+    <ul style="display:flex; list-style:none; gap:15px; padding:10px; background:#333; color:white;">
+      <li><a href="../index.html" style="color:white; text-decoration:none;">Home</a></li>
+      <li><a href="../html/collections.html" style="color:white; text-decoration:none;">Collections</a></li>
+      <li><a href="../html/shop.html" style="color:white; text-decoration:none;">Souvenir Shop</a></li>
+    </ul>
+  </nav>
+
+  <ul id="cart-items"></ul>
+
+  <h2 id="total-price">Total: $0</h2>
+
+  <button onclick="clearCart()">Remove All Items</button>
+
+  <script src="../js/cart.js"></script>
+</body>
+</html>
+

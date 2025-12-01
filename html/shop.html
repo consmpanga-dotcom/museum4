@@ -5,12 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Museum Souvenir Shop</title>
   <link rel="stylesheet" href="../css/index.style.css">
+  <script src="../js/cart.js"></script>
+  
+
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #f4f4f4;
+      background: #121212;
     }
     .shop-container {
       display: flex;
@@ -20,7 +23,7 @@
       padding: 20px;
     }
     .souvenir-item {
-      background: #fff;
+      background: #8d0e0e;
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
       width: 250px;
@@ -72,7 +75,7 @@
       background-color: rgba(0,0,0,0.7);
     }
     .modal-content {
-      background-color: #fff;
+      background-color: #4e0606;
       margin: auto;
       padding: 20px;
       border-radius: 10px;
@@ -101,8 +104,9 @@
   <nav>
     <ul style="display:flex; list-style:none; gap:15px; padding:10px; background:#333; color:white;">
       <li><a href="../index.html" style="color:white; text-decoration:none;">Home</a></li>
-      <li><a href="../collections.html" style="color:white; text-decoration:none;">Collections</a></li>
-      <li><a href="shop.html" style="color:white; text-decoration:none;">Souvenir Shop</a></li>
+      <li><a href="../html/collections.html" style="color:white; text-decoration:none;">Collections</a></li>
+      <li><a href="../html/cart.html" style="color:white; text-decoration:none;">cart</a></li>
+
     </ul>
   </nav>
 
@@ -157,47 +161,8 @@
       <button id="modalAddButton">Add to Cart</button>
     </div>
   </div>
+  <script src="../js/script.js"></script>
 
-  <script>
-    // Open modal dynamically
-    function openModal(img) {
-      const modal = document.getElementById('itemModal');
-      const modalImage = document.getElementById('modalImage');
-      const modalTitle = document.getElementById('modalTitle');
-      const modalDescription = document.getElementById('modalDescription');
-      const modalPrice = document.getElementById('modalPrice');
-      const modalAddButton = document.getElementById('modalAddButton');
-
-      const parent = img.closest('.souvenir-item');
-      modalImage.src = img.src;
-      modalImage.alt = img.alt;
-      modalTitle.textContent = parent.querySelector('h3').textContent;
-      modalDescription.textContent = parent.querySelector('p').textContent;
-      modalPrice.textContent = parent.querySelectorAll('p')[1].textContent;
-
-      modalAddButton.textContent = `Add ${modalTitle.textContent} to Cart`;
-      modalAddButton.onclick = function() {
-        addToCart(modalTitle.textContent);
-      };
-
-      modal.style.display = "block";
-    }
-
-    function closeModal() {
-      document.getElementById('itemModal').style.display = "none";
-    }
-
-    window.onclick = function(event) {
-      const modal = document.getElementById('itemModal');
-      if (event.target == modal) {
-        closeModal();
-      }
-    }
-
-    // Stub for Phase 2
-    function addToCart(itemName) {
-      alert(itemName + " added to cart!");
-    }
-  </script>
+ 
 </body>
 </html>
